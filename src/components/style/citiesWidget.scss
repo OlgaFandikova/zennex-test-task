@@ -3,4 +3,94 @@
   flex-grow: 1;
   border-radius: 10px;
   box-shadow: 1px 2px 7px rgba(0,0,0,.15);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+}
+
+.input-wrap {
+  margin: 0 0 20px 15px;
+  input {
+    size: 100% 40px;
+    height: 40px;
+    min-width: 150px;
+    line-height: 40px;
+    padding: 0 15px;
+    font-size: 17px;
+    border-radius: 4px;
+    background: transparent;
+    border: 2px solid #a4bfda;
+    outline: none;
+    transition: .2s;
+    will-change: background-color;
+    color: #fff;
+    &:focus {
+      background-color: #a4bfda;
+    }
+  }
+}
+
+.button {
+  margin: 0 0 20px 15px;
+  text-transform: uppercase;
+  padding: 0 30px;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: #f06097;
+  border-radius: 4px;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  transition: .2s;
+  will-change: background-color;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover {
+    background-color: #7e73f5;
+  }
+}
+
+.list {
+  > li {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #f0ae89;
+    border-radius: 4px;
+    transition: .2s;
+    will-change: background-color, color;
+    &:hover, &.active {
+      background-color: #f0ae89;
+      color: #fff;
+    }
+  }
+}
+
+.city {
+  flex-grow: 1;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.delete {
+  padding-right: 15px;
+  height: 16px;
+  flex: 0 0 16px;
+  > svg {
+    opacity: .5;
+    transition: .2s;
+    will-change: opacity;
+    cursor: pointer;
+    &:hover {
+      opacity: .8;
+    }
+  }
 }

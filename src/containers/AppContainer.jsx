@@ -9,6 +9,15 @@ import {renderView} from './containerDecorator'
 
 class AppContainer extends React.Component {
 
+    componentWillMount() {
+        let cities = JSON.parse(localStorage.getItem('cities'))
+
+        if (cities.length) {
+            this.props.setSities(cities)
+            this.handleSelectCity(cities[0])
+        }
+    }
+
     render() {
         return renderView(this.props, {
             handleAddCity: this.handleAddCity.bind(this),
@@ -21,10 +30,16 @@ class AppContainer extends React.Component {
         if (formData.city) {
             let cities = [...this.props.citiesList]
 
-            cities.unshift(formData.city)
-            cities = Array.from(new Set(cities))
+            Api.get(formData.city)
+                .then((data) => {
+                    cities.unshift(data.name || formData.city)
+                    cities = Array.from(new Set(cities))
 
-            this.handleSetCities(cities)
+                    this.handleSetCities(cities)
+                    this.props.setWeather(Object.assign({}, data, {
+                        name: data.name || formData.city
+                    }))
+                })
         }
     }
 
@@ -35,18 +50,20 @@ class AppContainer extends React.Component {
         cities = Array.from(new Set(cities))
 
         this.handleSetCities(cities)
+        this.handleSelectCity(cities[0])
     }
 
     handleSetCities(cities) {
         localStorage.setItem('cities', JSON.stringify(cities))
         this.props.setSities(cities)
-        this.handleSelectCity(cities[0])
     }
 
     handleSelectCity(city) {
         Api.get(city)
             .then((data) => {
-                this.props.setWeather(data)
+                this.props.setWeather(Object.assign({}, data, {
+                    name: data.name || city
+                }))
             })
     }
 }

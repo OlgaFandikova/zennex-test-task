@@ -9,7 +9,8 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.scss', '.png', '.jpeg', '.jpg', '.svg', '.css']
+        extensions: ['.js', '.jsx', '.scss', '.png', '.jpeg', '.jpg', '.svg', '.css'],
+        modules: ['node_modules', 'src']
     },
     module: {
         rules: [

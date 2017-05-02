@@ -12,21 +12,8 @@ const cx = classNames.bind(require('./style/app.scss'))
 
 class App extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
-
-    componentWillMount() {
-        let cities = JSON.parse(localStorage.getItem('cities'))
-
-        if (cities.length) {
-            this.props.setSities(cities)
-            this.props.handleSelectCity(cities[0])
-        }
-    }
-
     render() {
-        const {citiesList, weather} = this.props
+        const {citiesList, weather, handleAddCity, handleSelectCity, handleDeleteCity} = this.props
 
         return (
             <div className={cx('wrap')}>
@@ -34,14 +21,15 @@ class App extends React.Component {
                     <h1 className={cx('title', 'flex-grow-0')}>Weather</h1>
                     <div className={cx('row', 'flex-grow-1')}>
                         <div className={cx('column', 'md-6', 'flex')}>
-                            <WeatherWidget options={weather} />
+                            <WeatherWidget options={weather} cities={citiesList} />
                         </div>
                         <div className={cx('column', 'md-6', 'flex')}>
                             <CitiesWidget
+                                weather={weather}
                                 cities={citiesList}
-                                addCity={this.props.handleAddCity}
-                                selectCity={this.props.handleSelectCity}
-                                deleteCity={this.props.handleDeleteCity}
+                                addCity={handleAddCity}
+                                selectCity={handleSelectCity}
+                                deleteCity={handleDeleteCity}
                             />
                         </div>
                     </div>
