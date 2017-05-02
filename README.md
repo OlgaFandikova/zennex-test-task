@@ -2,13 +2,17 @@
 
 Для сборки проекта используем команду:
 
-`npm run build`
+`
+    npm run build
+`
 
-## Запуск dev servera
+## Запуск dev server
 
-Запуск Webpack dev server выполняем командой:
+Запуск webpack dev server выполняем командой:
 
-`npm run start`
+`
+    npm run start
+`
 
 ## Просмотр приложения
 
