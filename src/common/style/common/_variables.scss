@@ -1,0 +1,48 @@
+/* ===== Grig ===== */
+
+$gutter:                 15 !default;
+$columns:                12 !default;
+
+$screen-sizes: (
+  xs: 0,
+  sm: 768,
+  md: 1024,
+  lg: 1200,
+) !default;
+
+/* ===== Typography ===== */
+
+$default-text-color:      #000 !default;
+
+$body-font-family:        'Roboto', sans-serif !default;
+$body-font-size:          16 !default;
+$body-line-height:        1.6 !default;
+$body-text-color:         $default-text-color;
+
+/* ===== Colors ===== */
+
+/* Base Colors */
+
+$white:                   #fff !default;
+$black:                   #000 !default;
+$red:                     #E83E2C !default;
+$yellow:                  #E8A62C !default;
+$orange:                  #F25E2E !default;
+$blue:                    #30598D !default;
+$green:                   #458A8D !default;
+$pink:                    #D74961 !default;
+$purple:                  #3A3285 !default;
+
+/* Theme Colors */
+
+$primary:                 $purple !default;
+$secondary:               $green !default;
+$default:                 #A3A0A3 !default;
+$success:                 $green !default;
+$error:                   $red !default;
+
+/* Gray Colors */
+
+$light-gray:              #C9C6C9 !default;
+$medium-gray:             #BDB9BD !default;
+$dark-gray:               #8A878A !default;

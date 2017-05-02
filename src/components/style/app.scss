@@ -1,0 +1,21 @@
+.wrap {
+  min-height: 100vh;
+  background: url("../../img/bg-main.jpg") center no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+  display: flex;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}

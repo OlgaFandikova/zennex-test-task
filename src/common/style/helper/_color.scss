@@ -1,0 +1,39 @@
+/* ===== Color ===== */
+
+/* Variables */
+
+$colors: (
+  white: $white,
+  black: $black,
+  red: $red,
+  yellow: $yellow,
+  orange: $orange,
+  blue: $blue,
+  green: $green,
+  pink: $pink,
+  purple: $purple,
+  primary: $primary,
+  secondary: $secondary,
+  default: $default,
+  success: $success,
+  error: $error,
+  light-gray: $light-gray,
+  medium-gray: $medium-gray,
+  dark-gray: $dark-gray
+) !default;
+
+/* Background Color Classes */
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+}
+
+/* Text Color Classes */
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
