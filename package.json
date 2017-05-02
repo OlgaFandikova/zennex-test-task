@@ -1,0 +1,19 @@
+{
+  "name": "zennex-test-task",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack-dev-server --hot --watch --debug --devtool eval-source-map --output-pathinfo --inline --progress --content-base public --port 8888 --host 0.0.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlgaFandikova/zennex-test-task.git"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "webpack": "^2.1.0-beta.22",
+    "webpack-dev-server": "^2.1.0-beta.9"
+  }
+}
