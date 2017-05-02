@@ -1,11 +1,9 @@
 import * as React from 'react'
-import {connect} from 'react-redux'
 
 const classNames = require('classnames/bind')
 
-import Api from '../utils/api'
-import {setSities} from '../actions/citiesActions'
-import {setWeather} from '../actions/weatherActions'
+import {container} from '../containers/containerDecorator'
+import AppContainer from '../containers/AppContainer'
 import WeatherWidget from './WeatherWidget'
 import CitiesWidget from './CitiesWidget'
 
@@ -23,7 +21,7 @@ class App extends React.Component {
 
         if (cities.length) {
             this.props.setSities(cities)
-            this.handleSelectCity(cities[0])
+            this.props.handleSelectCity(cities[0])
         }
     }
 
@@ -41,9 +39,9 @@ class App extends React.Component {
                         <div className={cx('column', 'md-6', 'flex')}>
                             <CitiesWidget
                                 cities={citiesList}
-                                addCity={this.handleAddCity.bind(this)}
-                                selectCity={this.handleSelectCity.bind(this)}
-                                deleteCity={this.handleDeleteCity.bind(this)}
+                                addCity={this.props.handleAddCity}
+                                selectCity={this.props.handleSelectCity}
+                                deleteCity={this.props.handleDeleteCity}
                             />
                         </div>
                     </div>
@@ -51,46 +49,6 @@ class App extends React.Component {
             </div>
         )
     }
-
-    handleAddCity(formData) {
-        if (formData.city) {
-            let cities = [...this.props.citiesList]
-
-            cities.unshift(formData.city)
-            cities = Array.from(new Set(cities))
-
-            this.handleSetCities(cities)
-        }
-    }
-
-    handleDeleteCity(city) {
-        let cities = new Set([...this.props.citiesList])
-
-        cities.delete(city)
-        cities = Array.from(new Set(cities))
-
-        this.handleSetCities(cities)
-    }
-
-    handleSetCities(cities) {
-        localStorage.setItem('cities', JSON.stringify(cities))
-        this.props.setSities(cities)
-        this.handleSelectCity(cities[0])
-    }
-
-    handleSelectCity(city) {
-        Api.get(city)
-            .then((data) => {
-                this.props.setWeather(data)
-            })
-    }
 }
 
-function mapStateToProps(state) {
-    return {
-        citiesList: state.cities.citiesList,
-        weather: state.weather,
-    }
-}
-
-export default connect(mapStateToProps, {setWeather, setSities})(App)
+export default container(AppContainer)(App)
